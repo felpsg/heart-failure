@@ -13,7 +13,7 @@ Depois disso, realizamos uma análise exploratória dos dados. Primeiro, criamos
 
 Em seguida, criamos uma matriz de correlação para visualizar as relações entre as variáveis numéricas.
 
-![Matriz de correlação](img/figure_1.png)
+![Matriz de correlação](img/Figure_1.png)
 
 ## Modelagem de Previsão
 
