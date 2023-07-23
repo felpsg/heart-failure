@@ -14,7 +14,7 @@ from keras.utils import to_categorical
 # Carregando os dados
 dados = pd.read_csv('./heart_failure.csv')  # Lendo os dados do arquivo CSV
 
-# Aplicando LabelEncoder em cada uma das colunas categóricas
+# Aplicando o LabelEncoder em cada uma das colunas categóricas
 codificador = LabelEncoder()
 dados['anaemia'] = codificador.fit_transform(dados['anaemia'])
 dados['diabetes'] = codificador.fit_transform(dados['diabetes'])
@@ -30,13 +30,16 @@ for coluna in dados.columns:
 
 # Criando gráficos de barras para as variáveis categóricas
 variaveis_categoricas = ['anaemia', 'diabetes', 'high_blood_pressure', 'sex', 'smoking']
-for variavel in variaveis_categoricas:
-    plt.figure(figsize=(6, 4))
-    sns.barplot(x=variavel, y='death_event', data=dados)
-    plt.title('Taxa de eventos de morte em relação a ' + variavel)
-    plt.xlabel(variavel)
-    plt.ylabel('Taxa de eventos de morte')
-    plt.show()
+fig, axes = plt.subplots(nrows=2, ncols=3, figsize=(18, 10))
+fig.suptitle('Análise de Variáveis Categóricas em relação à Taxa de Eventos de Morte')
+
+for i, variavel in enumerate(variaveis_categoricas):
+    sns.barplot(x=variavel, y='death_event', data=dados, ax=axes[i // 3, i % 3])
+    axes[i // 3, i % 3].set_title(f'Taxa de eventos de morte em relação a {variavel}')
+    axes[i // 3, i % 3].set_xlabel(variavel)
+    axes[i // 3, i % 3].set_ylabel('Taxa de eventos de morte')
+
+plt.show()
 
 # Criando uma matriz de correlação para as variáveis numéricas
 plt.figure(figsize=(12, 10))
