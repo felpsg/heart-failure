@@ -1,6 +1,6 @@
-# Insuficiência Cardíaca - Análise de Dados e Modelagem Preditiva
+# Análise de Dados e Modelagem de Previsão de Insuficiência Cardíaca
 
-Este repositório foca-se na Análise Exploratória de Dados (EDA) e na construção de um modelo preditivo para eventos de morte relacionados à insuficiência cardíaca, utilizando um conjunto de dados específico.
+Este projeto aborda a exploração de um conjunto de dados específico para insuficiência cardíaca e a implementação de um modelo de Machine Learning para prever a ocorrência de eventos de morte.
 
 O projeto envolve as seguintes etapas e ferramentas:
 
@@ -11,21 +11,22 @@ O projeto envolve as seguintes etapas e ferramentas:
 - Criação e treinamento de uma rede neural profunda usando a biblioteca **Keras**
 - Avaliação do modelo e geração de um relatório de classificação
 
-## Exploração e Processamento de Dados
+## Análise Exploratória de Dados (EDA)
 
-A análise inicial do dataset envolve a manipulação e preparação dos dados através de técnicas como Label Encoding para variáveis categóricas e a normalização de colunas numéricas.
+Nesta fase, o conjunto de dados é carregado utilizando o **Pandas**, variáveis categóricas são transformadas usando `LabelEncoder` e variáveis numéricas são convertidas para inteiros. Procedemos então com a EDA, iniciando com a criação de gráficos de barras para variáveis categóricas para analisar a taxa de eventos de morte para cada categoria. 
 
-A EDA é realizada através de gráficos de barras e uma matriz de correlação, que permitem uma visualização mais clara das relações entre as variáveis.
+![Análise de variáveis categóricas x Taxa de eventos de morte](img/figure_analise.png)
 
-![Taxa de Eventos de Morte por Categorias](img/figure_analise.png)
-![Matriz de Correlação](img/Figure_1.png)
+Prosseguimos então com a criação de uma matriz de correlação para visualizar as relações entre as variáveis numéricas.
 
-## Modelagem Preditiva
+![Matriz de correlação](img/Figure_1.png)
 
-Após a divisão dos dados em conjuntos de treinamento e teste, implementamos uma Rede Neural Profunda utilizando a biblioteca Keras. Com uma camada de entrada, uma camada oculta (com função de ativação 'relu'), e uma camada de saída (com função de ativação 'softmax'), o modelo é compilado com Categorical Cross-Entropy Loss, otimizador 'Adam' e métrica 'accuracy'.
+## Modelagem de Previsão
 
-O modelo é então treinado por 100 épocas e avaliado no conjunto de teste, com a geração de um relatório de classificação detalhado.
+Os dados são divididos em conjuntos de treinamento e teste e a normalização `StandardScaler` é aplicada nas variáveis numéricas. Em seguida, construímos uma rede neural usando a biblioteca **Keras**, com uma camada de entrada, uma camada oculta (com função de ativação 'relu') e uma camada de saída (com função de ativação 'softmax'). O modelo é compilado com `Categorical Cross-Entropy Loss`, otimizador 'Adam' e métrica 'accuracy'.
 
-A evolução do treinamento é visualizada através de gráficos de acurácia e perda, úteis para identificar possíveis overfitting ou underfitting.
+Após o treinamento do modelo por 100 épocas, avaliamos a acurácia nos dados de teste e geramos um relatório de classificação para uma visão mais detalhada do desempenho do modelo.
 
-![Acurácia do Treinamento vs Acurácia da Validação - Perda do Treinamento vs Perda da Validação](img/acuracia-treinamento.png)
+A acurácia e a perda durante o treinamento são visualizadas através de gráficos para avaliar o desempenho do modelo ao longo do tempo e identificar potenciais problemas, como overfitting ou underfitting.
+
+![Acurácia do treinamento vs acurácia da validação - Perda do treinamento vs perda da validação](img/acuracia-treinamento.png)
