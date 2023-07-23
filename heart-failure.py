@@ -101,3 +101,4 @@ plt.ylabel('Perda')
 plt.legend()
 
 plt.show()
+
