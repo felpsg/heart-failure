@@ -1,6 +1,6 @@
 # Análise de Dados e Modelagem de Previsão de Insuficiência Cardíaca
 
-Este projeto aborda a exploração de um conjunto de dados específico para insuficiência cardíaca e a implementação de um modelo de Machine Learning para prever a ocorrência de eventos de morte.
+Este projeto aborda a exploração de um conjunto de dados específico para insuficiência cardíaca e a implementação de um modelo de Machine Learning para prever a ocorrência de eventos de fatalidade.
 
 O projeto envolve as seguintes etapas e ferramentas:
 
